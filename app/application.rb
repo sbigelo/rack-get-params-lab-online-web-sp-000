@@ -13,7 +13,7 @@ class Application
     elsif req.path.match(/cart/)
       if @@cart.empty?
         resp.write "Your cart is empty"
-      else 
+      else
         @@cart.each {|key| resp.write "#{key}"}
         end
     elsif req.path.match(/search/)
