@@ -16,6 +16,14 @@ class Application
       else
         @@cart.each {|key| resp.write "#{key}\n"}
         end
+    elsif req.path.match(/add/)
+      item = req.params["item"]
+      if @@cart.item
+        @@cart << item
+        resp.write "added #{item}"
+      else
+        resp.write "We don't have that item"
+        end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
